@@ -1,0 +1,381 @@
+/* ----------------------------------- Common CSS ----------------------------------- */
+:root {
+  --bgGreen: #fcfff4;
+  --primary01: rgb(112, 145, 118);
+  --primary02: #cde77f;
+  --primary03: #e6f8b2;
+  --support01: #79745c;
+  --support02: #132734;
+  --support03: #413810;
+  --white: #ffffff;
+  --grey: #f9f9f9;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bgGreen);
+  color: var(--support03);
+  position: relative;
+  min-height: 100%;
+}
+
+.btn {
+  background-color: var(--primary01) !important;
+  color: var(--bgGreen);
+  padding: 8px 19px;
+}
+
+.btn-outline {
+  border: 1px solid var(--primary01);
+  color: var(--primary01) !important;
+  padding: 8px 19px;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary01);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  color: var(--bgGreen) !important;
+}
+
+.btn:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* ----------------------------------- Navbar & Sidebar ----------------------------------- */
+.productListing .top_navbar {
+  padding: 10px 0;
+}
+
+.productListing .sidebar .profile .close_menu {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: white;
+}
+
+.productListing .sidebar .profile .close_menu a i {
+  font-size: 20px;
+}
+
+.productListing.active .sidebar {
+  width: 240px;
+  left: 0;
+}
+
+.productListing .sidebar {
+  background: var(--primary01);
+  position: fixed;
+  top: 0;
+  left: 0;
+  left: -245px;
+  height: 100%;
+  padding: 20px 0;
+  transition: all 0.5s ease;
+}
+
+.productListing .sidebar .profile {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.productListing .sidebar .profile img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.productListing .sidebar .profile h3 {
+  color: #ffffff;
+  margin: 10px 0 5px;
+}
+
+.productListing .sidebar .profile p {
+  color: rgb(206, 240, 253);
+  font-size: 14px;
+}
+
+.productListing .sidebar ul li a {
+  display: block;
+  padding: 13px 30px;
+  border-bottom: 1px solid rgba(241, 237, 237, 0.3);
+  color: rgb(241, 237, 237);
+  font-size: 16px;
+  position: relative;
+}
+
+.productListing .sidebar ul li a .icon {
+  color: #dee4ec;
+  width: 30px;
+  display: inline-block;
+}
+
+.productListing .sidebar ul li a:hover,
+.productListing .sidebar ul li a.active {
+  color: var(--primary01);
+  background: white;
+  border-right: 2px solid var(--primary02);
+}
+
+.productListing .sidebar ul li a:hover .icon,
+.productListing .sidebar ul li a.active .icon {
+  color: var(--primary01);
+}
+
+.productListing .sidebar ul li a:hover:before,
+.productListing .sidebar ul li a.active:before {
+  display: block;
+}
+
+.productListing .sectionBg {
+  background: var(--primary03);
+}
+
+.productListing .section .top_navbar .hamburger a {
+  font-size: 28px;
+  color: #f4fbff;
+}
+
+.productListing .section .top_navbar .hamburger a:hover {
+  color: #a2ecff;
+}
+
+.productListing.active .section {
+  width: 100%;
+}
+
+.sidebar hr {
+  color: rgba(241, 237, 237, 0.3);
+}
+
+/* ----------------------------------- breadcrumb ----------------------------------- */
+.breadcrumb {
+  background-color: var(--grey);
+}
+
+.breadcrumb nav {
+  height: 40px;
+}
+
+.breadcrumb nav a {
+  color: var(--support01);
+}
+
+.breadcrumb nav a:hover {
+  color: var(--primary01);
+}
+
+/* ----------------------------------- Products Cards ----------------------------------- */
+.products .price {
+  color: var(--support02);
+}
+
+.products .stars {
+  color: rgb(234, 234, 53);
+}
+
+.productCard {
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.productCard:hover {
+  transform: scale(1.02);
+}
+
+.productCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(112, 145, 118, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.productCard:hover .productCardOverlay {
+  display: flex;
+  opacity: 1;
+}
+
+.productCardOverlay .overlay-content {
+  text-align: center;
+}
+
+.overlay-button {
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 15px;
+  border-radius: 50%; /* Use 50% for a circular background */
+  border: none;
+  width: 50px;
+  height: 50px;
+}
+
+.productCardOverlay .editBtn {
+  background-color: #ffc107;
+  color: var(--support03);
+}
+
+.productCardOverlay .editBtn:hover,
+.productCardOverlay .deleteBtn:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.productCardOverlay .deleteBtn {
+  background-color: #dc3545;
+  color: var(--white);
+}
+
+.productCardOverlay i {
+  font-size: 18px;
+}
+
+.productCardOverlay .detailBtn {
+  background-color: var(--primary03) !important;
+  color: var(--support03) !important;
+  margin-top: 20px;
+}
+
+/* ----------------------------------- Detail Card ----------------------------------- */
+.detailCard .detailContents {
+  background-color: rgba(112, 145, 118, 0.1);
+}
+
+.detailContents .details {
+  border-left: 1px solid rgba(188, 188, 188, 0.4);
+  padding-left: 30px;
+}
+
+.detailCard .editBtn {
+  background-color: #ffc107;
+  color: var(--support03);
+}
+
+.detailCard .deleteBtn {
+  background-color: #dc3545;
+  color: var(--white);
+}
+
+.detailCard .editBtn:hover,
+.detailCard .deleteBtn:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* ----------------------------------- Pagination ----------------------------------- */
+.pagination .active,
+.pagination .active:hover {
+  background-color: var(--primary01);
+  color: var(--white);
+}
+
+/* ----------------------------------- Footer ----------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary03);
+  color: var(--support01);
+}
+/* ----------------------------------- Filter Section ----------------------------------- */
+.filter .productSearchBtn input:focus {
+  outline: none;
+}
+
+.filter .productSearchBtn input {
+  border: 0;
+  border-bottom: 1px solid var(--primary01);
+  background-color: var(--bgGreen);
+}
+
+.filter .productSearchBtn {
+  height: 42px;
+}
+
+.filter .sortedProduct {
+  border: 1px solid var(--primary01);
+  border-radius: 7px;
+  height: 42px;
+}
+/* ----------------------------------- Media Query ----------------------------------- */
+@media (max-width: 768px) {
+  .filter {
+    padding: 0 20px;
+  }
+
+  .filter .addProductBtn {
+    font-size: 14px;
+  }
+
+  .filter .addProductBtn a {
+    padding: 10px 13px;
+  }
+  .detailContents img {
+    margin: 0 auto;
+  }
+
+  .detailContents .details {
+    margin-top: 30px;
+    border: 1px solid rgba(188, 188, 188, 0.4);
+  }
+
+  .detailContents {
+    padding-top: 35px !important;
+  }
+
+  .detailContents .details {
+    padding: 30px;
+  }
+}
+@media (max-width: 639px) {
+  .breadcrumb {
+    padding: 0 20px;
+  }
+  .filter .showLg {
+    display: none;
+  }
+
+  .filter .showSm {
+    display: block;
+  }
+}
+@media (max-width: 425px) {
+  .productListing .logo {
+    height: 75px;
+  }
+
+  .productListing .logoutIcon {
+    display: none;
+  }
+
+  .productListing .logoutBtn a {
+    font-size: 14px;
+  }
+  .breadcrumb {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .productListing .logo {
+    height: 68px;
+  }
+  .productListing .logoutBtn a {
+    font-size: 13px;
+  }
+  .logoutBtn .btn {
+    padding: 6px 12px;
+  }
+}
