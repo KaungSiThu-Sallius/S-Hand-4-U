@@ -22,9 +22,22 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--bgGreen);
-  color: var(--support03);
+  color: var(--support03) !important;
   position: relative;
   min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  padding: 0;
 }
 
 .btn {
@@ -47,9 +60,82 @@ body {
 
 .btn:hover {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  color: var(--bgGreen);
+}
+
+.breadcrumbLink {
+  color: var(--primary01);
+}
+
+.breadcrumbLink a {
+  color: var(--primary01) !important;
+}
+
+.circle {
+  border-radius: 50%;
+  z-index: -3;
+  position: absolute;
+  width: 379px;
+  height: 379px;
+  border: 67px solid #e3ebf2;
+}
+
+.circle1 {
+  left: -200px;
+  top: -28px;
+}
+
+.blurCircle {
+  border-radius: 50%;
+  z-index: -4;
+  position: absolute;
+  width: 512px;
+  height: 512px;
+
+  background: rgb(227, 249, 182);
+  background: radial-gradient(
+    circle,
+    rgba(121, 173, 225, 0.564) 56%,
+    rgb(210, 255, 150) 19%
+  );
+  filter: blur(100px);
+}
+.blurCircle1 {
+  left: -166px;
+  top: -100px;
+}
+
+.blurCircle2 {
+  right: -43px;
+  bottom: -306px;
+}
+.circle2 {
+  border-radius: 50%;
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  left: 40px;
+  top: 261px;
+  border: 32px solid rgba(112, 145, 118, 0.4);
+  z-index: -2;
+}
+
+.circle3 {
+  right: 0;
+  bottom: -238px;
 }
 
 /* ----------------------------------- Navbar & Sidebar ----------------------------------- */
+.productListing .top_navbar .hamburger_menu,
+.productListing .top_navbar .logoutBtn {
+  height: 100%;
+  justify-content: space-around;
+}
+
+.productListing .top_navbar .hamburger_menu a {
+  color: var(--primary01);
+}
+
 .productListing .top_navbar {
   padding: 10px 0;
 }
@@ -58,6 +144,9 @@ body {
   position: absolute;
   right: 15px;
   top: 10px;
+}
+
+.productListing .sidebar .profile .close_menu a {
   color: white;
 }
 
@@ -68,6 +157,11 @@ body {
 .productListing.active .sidebar {
   width: 240px;
   left: 0;
+  z-index: 1000;
+}
+
+.sidebar hr {
+  margin: 0;
 }
 
 .productListing .sidebar {
@@ -82,7 +176,7 @@ body {
 }
 
 .productListing .sidebar .profile {
-  margin-bottom: 30px;
+  margin-bottom: 22px;
   text-align: center;
 }
 
@@ -94,7 +188,7 @@ body {
   margin: 0 auto;
 }
 
-.productListing .sidebar .profile h3 {
+.productListing .sidebar .profile h4 {
   color: #ffffff;
   margin: 10px 0 5px;
 }
@@ -184,7 +278,7 @@ body {
 }
 
 .products .stars {
-  color: rgb(234, 234, 53);
+  color: #ffe234;
 }
 
 .productCard {
@@ -201,13 +295,15 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 233px;
   background-color: rgba(112, 145, 118, 0.7);
   display: none;
   justify-content: center;
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s;
+  border-top-right-radius: 0.375rem;
+  border-top-left-radius: 0.375rem;
 }
 
 .productCard:hover .productCardOverlay {
@@ -254,9 +350,30 @@ body {
   margin-top: 20px;
 }
 
+.productName,
+.productPrice {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+.productPrice {
+  color: var(--primary01);
+  font-size: 21px;
+}
+
+.productCard .fa-star {
+  font-size: 12px;
+}
+
 /* ----------------------------------- Detail Card ----------------------------------- */
-.detailCard .detailContents {
-  background-color: rgba(112, 145, 118, 0.1);
+.detailCard {
+  overflow: hidden !important;
+  position: relative;
+  height: 73vh;
+}
+.detailCard .card {
+  background-color: rgba(112, 145, 118, 0.1) !important;
 }
 
 .detailContents .details {
@@ -265,63 +382,66 @@ body {
 }
 
 .detailCard .editBtn {
-  background-color: #ffc107;
+  background-color: #ffc107 !important;
   color: var(--support03);
 }
 
 .detailCard .deleteBtn {
-  background-color: #dc3545;
+  background-color: #dc3545 !important;
   color: var(--white);
 }
 
 .detailCard .editBtn:hover,
 .detailCard .deleteBtn:hover {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2) !important;
 }
 
 /* ----------------------------------- Pagination ----------------------------------- */
 .pagination .active,
 .pagination .active:hover {
   background-color: var(--primary01);
-  color: var(--white);
+  color: var(--white) !important;
+}
+
+.pagination .page-link {
+  color: var(--primary01);
 }
 
 /* ----------------------------------- Footer ----------------------------------- */
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  font-size: 14px;
   width: 100%;
   background-color: var(--primary03);
-  color: var(--support01);
 }
+
 /* ----------------------------------- Filter Section ----------------------------------- */
-.filter .productSearchBtn input:focus {
-  outline: none;
-}
 
-.filter .productSearchBtn input {
-  border: 0;
-  border: 1px solid var(--primary01);
-  background-color: var(--bgGreen);
-  border-radius: 8px;
-}
-
-.filter .productSearchBtn {
-  height: 42px;
-}
-
-.filter .sortedProduct {
-  border: 1px solid var(--primary01);
-  border-radius: 7px;
-  height: 42px;
+.filter .ms-n5 {
+  margin-left: -54px;
 }
 
 .filter .searchIcon {
   color: var(--primary01);
   margin-bottom: 2px;
 }
+
+.filterSelect {
+  height: 40px;
+  width: 80%;
+}
 /* ----------------------------------- Media Query ----------------------------------- */
+
+@media (max-width: 1199px) {
+  .container-custom {
+    max-width: 1125px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .cardLg {
+    width: 700px !important;
+  }
+}
 @media (max-width: 768px) {
   .filter {
     padding: 0 20px;
@@ -329,6 +449,7 @@ body {
 
   .filter .addProductBtn {
     font-size: 14px;
+    width: 100%;
   }
 
   .filter .addProductBtn a {
@@ -350,17 +471,38 @@ body {
   .detailContents .details {
     padding: 30px;
   }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .cardLg {
+    display: none;
+  }
+
+  .cardSm {
+    display: block !important;
+  }
+
+  .detailCard {
+    height: initial;
+    padding-bottom: 40px;
+  }
 }
 @media (max-width: 639px) {
   .breadcrumb {
     padding: 0 20px;
   }
-  .filter .showLg {
-    display: none;
-  }
 
-  .filter .showSm {
-    display: block;
+  .pagination {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .productCard {
+    width: 304px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 425px) {
@@ -378,9 +520,21 @@ body {
   .breadcrumb {
     padding: 0 15px;
   }
+
+  .breadcrumb li {
+    font-size: 14px;
+  }
+
+  .blurCircle {
+    width: 345px;
+  }
 }
 
 @media (max-width: 320px) {
+  .productCard {
+    width: 100%;
+    margin: 0 auto;
+  }
   .productListing .logo {
     height: 68px;
   }

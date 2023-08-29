@@ -17,476 +17,500 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- tailwindcss -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- bootstrap5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <!-- external CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="productListing">
+    <div class="productListing pb-4">
+
         <!-- Navbar -->
         <div class="sectionBg">
-            <div class="section md:container md:mx-auto">
+            <div class="container mx-auto">
                 <div class="top_navbar">
-                    <div class="grid grid-cols-3 justify-items-center w-full">
-                        <div class="hamburger_menu flex items-center">
-                            <a href="#" id="hamburgerBtn">
-                                <i class="fa-solid fa-bars"></i>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="hamburger_menu d-flex align-items-center">
+                                <a href="#" id="hamburgerBtn">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="logo d-flex align-items-center justify-content-center">
+                                <img src="images/logo.svg" alt="Logo" class="logo">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="logoutBtn d-flex align-items-center">
+                                <a href="#" class="btn rounded-md">
+                                    <span class="icon logoutIcon"><i class="fas fa-right-from-bracket"></i></span>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="listingContent">
+            <!-- Breadcrumb -->
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="px-md-5 bg-light">
+                <ol class="breadcrumb px-sm-5 py-2">
+                    <li class="breadcrumb-item breadcrumbLink"><i class="fas fa-home"></i> <a href="#">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                </ol>
+            </nav>
+
+            <!-- Filter -->
+            <div class="filter ">
+                <div class="container container-custom">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-7 my-2">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <input class="form-control border-end-0 border" type="search"
+                                                style="border-radius: 7px;" id="example-search-input"
+                                                placeholder="Search...">
+                                            <span class="input-group-append">
+                                                <button
+                                                    class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                                    type="button">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="col-md-5 my-2">
+                                    <select class="form-select filterSelect" aria-label="Default select example">
+                                        <option selected>Sort by: Default</option>
+                                        <option value="low2high">Sort by price: Low to High</option>
+                                        <option value="high2Low">Sort by price: High to Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 my-2 text-end">
+                            <a href="#" class="btn rounded-md addProductBtn" style="height: 40px;">
+                                <span class="icon"><i class="fas fa-circle-plus"></i></span>
+                                Add Product
                             </a>
                         </div>
-                        <div class="logo flex items-center">
-                            <img src="images/logo.svg" alt="Logo" class="logo">
-                        </div>
-                        <div class="logoutBtn flex items-center">
-                            <a href="#" class="btn rounded-md"><span class="icon logoutIcon"><i
-                                        class="fa-solid fa-right-from-bracket"></i></span> Logout</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <div class="container mx-auto md:px-10">
-                <nav class="flex" aria-label="Breadcrumb">
-                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                        <li class="inline-flex items-center">
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-medium text-gray-700 dark:text-gray-400">
-                                <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-                                </svg>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li aria-current="page">
-                            <div class="flex items-center">
-                                <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 9 4-4-4-4" />
-                                </svg>
-                                <span
-                                    class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Products</span>
-                            </div>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- Filter Field -->
-        <div class="filter py-5">
-            <div class="container mx-auto">
-                <div class="showLg grid sm:grid-cols-4 w-full gap-6 grid-cols-3">
-                    <form class="col-span-2">
-                        <label for="default-search"
-                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                        <div class="relative productSearchBtn">
-
-                            <input type="search" id="default-search" class="block w-full p-2.5  text-sm text-gray-900"
-                                placeholder="Search products ..." style="padding-bottom: 11px;" required>
-                            <button type="submit"
-                                class=" absolute right-2.5 bottom-2  font-medium  text-sm px-3 searchIcon"><i
-                                    class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                    <div class="sortedProduct">
-                        <label for="sortedProduct" class="sr-only">Product Sort</label>
-                        <select id="sortedProduct"
-                            class="block py-2.5 px-3 w-full text-sm text-gray-500 bg-transparent appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 peer">
-                            <option selected>Sort by: Default</option>
-                            <option value="low2high">Sort by price: Low to High</option>
-                            <option value="high2Low">Sort by price: High to Low</option>
-                        </select>
-                    </div>
-                    <div class="addProductBtn flex items-center justify-end">
-                        <a href="addProduct.html" class="btn rounded-md"><span class="icon addProductIcon"><i
-                                    class="fa-solid fa-plus-circle pr-1.5"></i></span> Add Product</a>
-                    </div>
-                </div>
-                <div class="showSm hidden">
-                    <form class="mb-4">
-                        <label for="default-search"
-                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                        <div class="relative productSearchBtn">
-
-                            <input type="search" id="default-search" class="block w-full p-2.5  text-sm text-gray-900"
-                                placeholder="Search products ..." style="padding-bottom: 11px;" required>
-                            <button type="submit"
-                                class=" absolute right-2.5 bottom-2  font-medium  text-sm px-3 searchIcon"><i
-                                    class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                    <div class="sortedProduct mb-4">
-                        <label for="sortedProduct" class="sr-only">Product Sort</label>
-                        <select id="sortedProduct"
-                            class="block py-2.5 px-3 w-full text-sm text-gray-500 bg-transparent appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 peer">
-                            <option selected>Sort by: Default</option>
-                            <option value="low2high">Sort by price: Low to High</option>
-                            <option value="high2Low">Sort by price: High to Low</option>
-                        </select>
-                    </div>
-                    <div class="">
-                        <a href="addProduct.html" class="btn rounded-md w-full flex items-center justify-center">
-                            <span class="icon addProductIcon"><i class="fa-solid fa-plus-circle pr-1.5"></i></span>
-                            Add Product
-                        </a>
                     </div>
                 </div>
             </div>
 
-        </div>
-        <!-- Products List -->
-        <div class="products my-8 rounded-md">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  w-full gap-8  justify-items-center">
-                    <!-- Products -->
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md productCard">
-                        <img class="w-full" src="images/ps4.png" alt="PlayerStation4">
-                        <div class="productCardOverlay">
-                            <div class="overlay-content">
-                                <button class="overlay-button editBtn"><i
-                                        class="fa-solid fa-pen-to-square"></i></button>
-                                <button class="overlay-button deleteBtn"><i class="fa-solid fa-trash"></i></button>
-                                <br>
-                                <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
-                            </div>
-                        </div>
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">PlayerStation 4</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$200</p>
+            <!-- Products -->
+            <div class="products my-4">
+                <div class="container container-custom">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
                                     </div>
                                 </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Electronics</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/books.png" alt="Books">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Harry Potter</p>
+                                <img class="card-img-top" src="images/ps4.png" alt="PlayerStation4">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">PlayerStation 4</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$200</p>
+                                        </div>
                                     </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$20</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Books</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/desk.png" alt="Desk">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Study Desk</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$100</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Funiture</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/knife.png" alt="Knife">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Pocket Knife</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$10</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Multi Tools</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="category text-muted">Electronics</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
 
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/books.png" alt="Books">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Harry Potter</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$20</p>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                            <hr>
+
                         </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Books</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/knife.png" alt="Knife">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Pocket Knife</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$10</p>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
                                     </div>
                                 </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Multi Tools</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/desk.png" alt="Desk">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">Study Desk</p>
+                                <img class="card-img-top" src="images/books.png" alt="Harry Potter">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Harry Potter</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$40</p>
+                                        </div>
                                     </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$100</p>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Books</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                            <hr>
+
                         </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Funiture</p>
-                                </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm rounded-lg overflow-hidden shadow-md">
-                        <img class="w-full" src="images/ps4.png" alt="PlayerStation4">
-                        <div class="px-6 py-4">
-                            <div class="mb-2">
-                                <div class="flex">
-                                    <div class="w-4/5">
-                                        <p class="font-bold text-lg">PlayerStation 4</p>
-                                    </div>
-                                    <div class="w-1/5">
-                                        <p class="text-right text-lg price font-bold">$200</p>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
                                     </div>
                                 </div>
+                                <img class="card-img-top" src="images/desk.png" alt="Desk">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Study Desk</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$300</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Funiture</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <hr>
+
                         </div>
-                        <div class="px-6 pb-4">
-                            <div class="flex justify-between items-baseline">
-                                <div>
-                                    <p class="text-gray-400 font-medium flex-grow text-sm">Electronics</p>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="stars text-sm">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </p>
+                                <img class="card-img-top" src="images/knife.png" alt="Knife">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Knife</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$10</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Multi Tool</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
+                                    </div>
+                                </div>
+                                <img class="card-img-top" src="images/desk.png" alt="Desk">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Study Desk</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$300</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Funiture</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
+                                    </div>
+                                </div>
+                                <img class="card-img-top" src="images/knife.png" alt="Knife">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Knife</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$10</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Multi Tool</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
+                                    </div>
+                                </div>
+                                <img class="card-img-top" src="images/books.png" alt="Harry Potter">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">Harry Potter</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$40</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Books</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                            <div class="productCard card">
+                                <div class="productCardOverlay">
+                                    <div class="overlay-content">
+                                        <button class="overlay-button editBtn"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="overlay-button deleteBtn"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                        <br>
+                                        <a href="productDetails.html" class="btn rounded-md detailBtn block">Details</a>
+                                    </div>
+                                </div>
+                                <img class="card-img-top" src="images/ps4.png" alt="PlayerStation4">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-fill">
+                                            <p class="productName">PlayerStation 4</p>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <p class="text-end productPrice">$200</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <div class="d-flex">
+                                            <div class="flex-fill">
+                                                <p class="">Electronics</p>
+                                            </div>
+                                            <div class="flex-fill">
+                                                <p class="stars text-end">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-        <!-- Pagination -->
-        <div class="pagination pb-10">
-            <div class="container mx-auto px-10 py-10 flex justify-center md:justify-end ">
-                <nav aria-label="Page navigation ">
-                    <ul class="inline-flex -space-x-px text-sm justify-center flex-wrap ">
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 ">Previous</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page"
-                                class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 active">3</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">4</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">5</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- Footer -->
-        <div class="footer py-2">
-            <div class="container mx-auto md:px-10">
-                <p class="text-sm">Copyright © 2023 Second-4-U - All Rights Reserved.</p>
-            </div>
-        </div>
+
+
+
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="profile">
                 <img src="images/profile.png" alt="profile_picture">
                 <span class="close_menu">
                     <a href="#">
-                        <i class="fa-solid fa-xmark"></i>
+                        <i class="fas fa-times"></i>
                     </a>
                 </span>
-                <h3>Kaung Si Thu</h3>
+                <h4>Kaung Si Thu</h4>
                 <p>Admin</p>
             </div>
             <hr>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="#" class="dashboardLink">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
                         <span class="item">Dashboard</span>
                     </a>
                 </li>
                 <li>
                     <a href="productsListing.html" class="active">
-                        <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                         <span class="item">Products Listing</span>
                     </a>
                 </li>
                 <li>
                     <a href="addProduct.html">
-                        <span class="icon"><i class="fa-solid fa-cart-plus"></i></span>
+                        <span class="icon"><i class="fas fa-cart-plus"></i></span>
                         <span class="item">Add New Product</span>
                     </a>
                 </li>
@@ -496,27 +520,69 @@
                         <span class="item">Category Listing</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-plus-circle"></i></span>
-                        <span class="item">Add New Category</span>
-                    </a>
-                </li>
+
             </ul>
         </div>
 
+        <div class="container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
     </div>
+
+
+    <!-- footer -->
+    <footer class="footer py-2 mt-auto">
+        <div class="container">
+            <p class="text-muted">Copyright © 2023 Second-4-U - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
     <script>
+        const sidebar = document.querySelector('.sidebar');
+        const pageContent = document.querySelector('.listingContent');
+        const productListing = document.querySelector(".productListing");
+
+        document.addEventListener('click', function (event) {
+
+            if (productListing.classList.contains('active') && pageContent.contains(event.target)) {
+                console.log("OK")
+                productListing.classList.remove("active");
+                document.getElementById('hamburgerBtn').style.display = "inline";
+            }
+        });
+
         var hamburger = document.querySelector(".hamburger_menu");
         hamburger.addEventListener("click", function () {
-            document.querySelector(".productListing").classList.toggle("active");
-            document.getElementById('hamburgerBtn').style.display = "none";
+            if (!productListing.classList.contains('active')) {
+                productListing.classList.toggle("active");
+                document.getElementById('hamburgerBtn').style.display = "none";
+            }
+
         })
 
         var close = document.querySelector(".close_menu");
         close.addEventListener("click", function () {
-            document.querySelector(".productListing").classList.toggle("active");
-            document.getElementById('hamburgerBtn').style.display = "block";
+            productListing.classList.toggle("active");
+            document.getElementById('hamburgerBtn').style.display = "inline";
         })
     </script>
 </body>
