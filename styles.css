@@ -372,6 +372,11 @@ li {
   position: relative;
   height: 73vh;
 }
+
+.addProductForm {
+  overflow: hidden !important;
+  position: relative;
+}
 .detailCard .card {
   background-color: rgba(112, 145, 118, 0.1) !important;
 }
@@ -394,6 +399,10 @@ li {
 .detailCard .editBtn:hover,
 .detailCard .deleteBtn:hover {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2) !important;
+}
+
+.card-header h4 {
+  color: var(--support03);
 }
 
 /* ----------------------------------- Pagination ----------------------------------- */
@@ -430,6 +439,18 @@ li {
   width: 80%;
 }
 /* ----------------------------------- Media Query ----------------------------------- */
+
+@media (max-width: 1400px) {
+  .container-custom2 {
+    max-width: 748px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-custom2 {
+    max-width: 748px;
+  }
+}
 
 @media (max-width: 1199px) {
   .container-custom {
@@ -484,7 +505,8 @@ li {
     display: block !important;
   }
 
-  .detailCard {
+  .detailCard,
+  .addProductForm {
     height: initial;
     padding-bottom: 40px;
   }
