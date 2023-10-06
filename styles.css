@@ -125,6 +125,10 @@ li {
   bottom: -238px;
 }
 
+.errorValidate {
+  color: red;
+}
+
 /* ----------------------------------- Navbar & Sidebar ----------------------------------- */
 .productListing .top_navbar .hamburger_menu,
 .productListing .top_navbar .logoutBtn {
@@ -325,8 +329,9 @@ li {
   height: 50px;
 }
 
-.productCardOverlay .editBtn {
-  background-color: #ffc107;
+.productCardOverlay .editBtn,
+.actionBtn.edit {
+  background-color: #ffc107 !important;
   color: var(--support03);
 }
 
@@ -335,8 +340,9 @@ li {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.productCardOverlay .deleteBtn {
-  background-color: #dc3545;
+.productCardOverlay .deleteBtn,
+.actionBtn.delete {
+  background-color: #dc3545 !important;
   color: var(--white);
 }
 
@@ -520,7 +526,6 @@ li {
 }
 
 /* ----------------------------------- Filter Section ----------------------------------- */
-
 .filter .ms-n5 {
   margin-left: -54px;
 }
@@ -534,6 +539,25 @@ li {
   height: 40px;
   width: 80%;
 }
+/* ----------------------------------- Category ----------------------------------- */
+.categoryTable tr td,
+.categoryTable tr th {
+  background-color: var(--bgGreen);
+  line-height: 31px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.categoryTable {
+  margin-bottom: 0;
+}
+
+.actionBtn {
+  padding: 0;
+  border-color: transparent;
+  margin-right: 2px;
+}
+
 /* ----------------------------------- Media Query ----------------------------------- */
 
 @media (max-width: 1400px) {

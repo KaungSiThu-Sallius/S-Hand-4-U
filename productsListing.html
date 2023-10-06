@@ -528,7 +528,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="categoryListing.html">
                         <span class="icon"><i class="fas fa-list"></i></span>
                         <span class="item">Category Listing</span>
                     </a>
@@ -569,35 +569,7 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 
-    <script>
-        const sidebar = document.querySelector('.sidebar');
-        const pageContent = document.querySelector('.listingContent');
-        const productListing = document.querySelector(".productListing");
-
-        document.addEventListener('click', function (event) {
-
-            if (productListing.classList.contains('active') && pageContent.contains(event.target)) {
-                console.log("OK")
-                productListing.classList.remove("active");
-                document.getElementById('hamburgerBtn').style.display = "inline";
-            }
-        });
-
-        var hamburger = document.querySelector(".hamburger_menu");
-        hamburger.addEventListener("click", function () {
-            if (!productListing.classList.contains('active')) {
-                productListing.classList.toggle("active");
-                document.getElementById('hamburgerBtn').style.display = "none";
-            }
-
-        })
-
-        var close = document.querySelector(".close_menu");
-        close.addEventListener("click", function () {
-            productListing.classList.toggle("active");
-            document.getElementById('hamburgerBtn').style.display = "inline";
-        })
-    </script>
+     <script src="script.js"></script>
 </body>
 
 </html>
